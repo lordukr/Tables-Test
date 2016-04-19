@@ -119,7 +119,7 @@ typedef enum {
     return preparedArray;
 }
 
-- (UITableViewCell*) createCellForObjectStudent:(AZStudent*) student andTable:(UITableView*) tableView {
+- (UITableViewCell*) createCellForObjectStudent:(AZStudent*) student inTable:(UITableView*) tableView {
     static NSString* identifierStudent = @"studentCell";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifierStudent];
@@ -153,7 +153,7 @@ typedef enum {
     return cell;
 }
 
-- (UITableViewCell*) createCellForObjectColor:(AZColor*) colorObject andTable:(UITableView*) tableView {
+- (UITableViewCell*) createCellForObjectColor:(AZColor*) colorObject inTable:(UITableView*) tableView {
     static NSString* identifier = @"colorCell";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -187,12 +187,12 @@ typedef enum {
     if ([object isKindOfClass:[AZStudent class]]) {
         AZStudent* student = (AZStudent*)object;
         
-        cell = [self createCellForObjectStudent:student andTable:tableView];
+        cell = [self createCellForObjectStudent:student inTable:tableView];
     }
     else if ([object isKindOfClass:[AZColor class]]) {
         AZColor* color = (AZColor*)object;
         
-        cell = [self createCellForObjectColor:color andTable:tableView];
+        cell = [self createCellForObjectColor:color inTable:tableView];
         
     }
     
